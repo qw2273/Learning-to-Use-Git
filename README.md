@@ -24,14 +24,14 @@ Git has a staging area in which it stores files with changes you want to save th
 
 A diff is a formatted display of the differences between two sets of files. Git displays diffs like this:
 
-`diff --git a/data/northern.csv b/data/northern.csvindex 5eb7a96..5a2a259 100644
---- a/data/northern.csv
-+++ b/data/northern.csv
-@@ -22,3 +22,4 @@ Date,Tooth
- 2017-08-13,incisor
- 2017-08-13,wisdom
- 2017-09-07,molar
-+2017-11-01,bicuspid`
+`diff --git a/data/northern.csv b/data/northern.csvindex 5eb7a96..5a2a259 100644`
+`--- a/data/northern.csv`
+`+++ b/data/northern.csv`
+`@@ -22,3 +22,4 @@ Date,Tooth`
+`2017-08-13,incisor`
+`2017-08-13,wisdom`
+`2017-09-07,molar`
+`+2017-11-01,bicuspid`
 
 This shows:
 * The command used to produce the output (in this case, diff --git). In it, `a` and `b` are placeholders meaning "the first version" and "the second version".
