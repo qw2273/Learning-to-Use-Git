@@ -43,8 +43,8 @@ This shows:
 
 
 * `nano filename`: open filename for editing (or create it if it doesn't already exist)
-                 1. `Ctrl-K`: delete a line.
-                 2. `Ctrl-U`: un-delete a line.
-                 3. `Ctrl-O`: save the file ('O' stands for 'output').
-                 4. `Ctrl-X`: exit the editor.
+                 1. `Ctrl-K`: delete a line. <br />
+                 2. `Ctrl-U`: un-delete a line. <br/>
+                 3. `Ctrl-O`: save the file ('O' stands for 'output').<br />
+                 4. `Ctrl-X`: exit the editor.<br />
 
