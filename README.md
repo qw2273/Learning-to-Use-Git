@@ -42,9 +42,21 @@ This shows:
 * A line-by-line listing of the changes with `-` showing deletions and `+` showing additions (we have also configured Git to show deletions in red and additions in green). Lines that haven't changed are sometimes shown before and after the ones that have in order to give context; when they appear, they don't have either `+` or `-` in front of them.
 
 
-* `nano filename`: open filename for editing (or create it if it doesn't already exist)
+* `nano filename`: open filename for editing (or create it if it doesn't already exist)<br />
                  1. `Ctrl-K`: delete a line. <br />
                  2. `Ctrl-U`: un-delete a line. <br/>
                  3. `Ctrl-O`: save the file ('O' stands for 'output').<br />
-                 4. `Ctrl-X`: exit the editor.<br />
+                 4. `Ctrl-X`: exit the editor.
 
+* `git commit -m "add comment messgae here"`: add a single-line message
+* `git commit`: add message in a text editor
+* `git commit --amend - m "new message"`: revise the message 
+* `git log`: view the history , the history is displaced *from latest to the oldest*, push `space` button to continue reading and `q` to exit 
+* `git log directroy/filepath`:inspect only the changes to particular files or directories
+
+## Tree-level structure 
+1. A **commit** contains metadata such as the author, the commit message, and the time the commit happened. 
+2. Each commit also has a **tree**, which tracks the names and locations in the repository when that commit happened. In the oldest (top) commit, there were two files tracked by the repository.
+3. For each of the files listed in the tree, there is a **blob**. This contains a compressed snapshot of the contents of the file when the commit happened (blob is short for binary large object, which is a SQL database term for "may contain data of any kind"). In the middle commit, `report.md` and `draft.md` were changed, so the blobs are shown next to that commit. `data/northern.csv` didn't change in that commit, so the tree links to the blob from the previous commit. Reusing blobs between commits help make common operations fast and minimizes storage space.
+
+![tree level structure](/images/gds_2_1_SVG.svg)
