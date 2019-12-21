@@ -13,15 +13,27 @@ Git has a staging area in which it stores files with changes you want to save th
 
 ![staging-area](/images/staging-area.png)
 
+## Tree-level structure 
+1. A **commit** contains metadata such as the author, the commit message, and the time the commit happened. 
+2. Each commit also has a **tree**, which tracks the names and locations in the repository when that commit happened. In the oldest (top) commit, there were two files tracked by the repository.
+3. For each of the files listed in the tree, there is a **blob**. This contains a compressed snapshot of the contents of the file when the commit happened (blob is short for binary large object, which is a SQL database term for "may contain data of any kind"). In the middle commit, `report.md` and `draft.md` were changed, so the blobs are shown next to that commit. `data/northern.csv` didn't change in that commit, so the tree links to the blob from the previous commit. Reusing blobs between commits help make common operations fast and minimizes storage space.
 
-## Useful command List 
+![tree level structure](/images/gds_2_1_SVG.svg)
+
+
+# Useful command List 
 * `cd repositoryname`: set to specific repository 
 * `git status`: shows you which files are in this staging area, and which files have changes that haven't yet been put there. 
 * `git add filename`: add a file to the staging area
+
+## View changes
 * `git diff filename`: compare the file as it currently is to what you last saved
 * `git diff`: show all the changes in your repository
 * `git diff directory`: show you the changes to the files in some directory
 * `git diff -r HEAD`:  The `-r` flag means "compare to a particular revision", and `HEAD` is a shortcut meaning "the most recent commit"
+* The special label `HEAD`, always refers to the most recent commit. The label `HEAD~2` refers to the most recent commit and the one that before it 
+* `git diff HEAD~1/hashnumber..HEAD~3/hashnumber`: show changes between commits 
+* `git annotate file`: shows who made the last change to each line of a file and when
 
 *Example on how to read git diff output* 
 A diff is a formatted display of the differences between two sets of files. Git displays diffs like this:
@@ -41,22 +53,36 @@ This shows:
 * A line starting with `@@` that tells where the changes are being made. The pairs of numbers are `start line` and `number of lines` (in that section of the file where changes occurred). This diff output indicates changes starting at line 22 , with 4 lines where there were once 3.
 * A line-by-line listing of the changes with `-` showing deletions and `+` showing additions (we have also configured Git to show deletions in red and additions in green). Lines that haven't changed are sometimes shown before and after the ones that have in order to give context; when they appear, they don't have either `+` or `-` in front of them.
 
-
+# Comment on commits and check submitted commits
 * `nano filename`: open filename for editing (or create it if it doesn't already exist)<br />
                  1. `Ctrl-K`: delete a line. <br />
                  2. `Ctrl-U`: un-delete a line. <br/>
                  3. `Ctrl-O`: save the file ('O' stands for 'output').<br />
                  4. `Ctrl-X`: exit the editor.
-
 * `git commit -m "add comment messgae here"`: add a single-line message
 * `git commit`: add message in a text editor
 * `git commit --amend - m "new message"`: revise the message 
 * `git log`: view the history , the history is displaced *from latest to the oldest*, push `space` button to continue reading and `q` to exit 
 * `git log directroy/filepath`:inspect only the changes to particular files or directories
+* `git show first_few_characters_of_hash`: check a specific commit using hash 
 
-## Tree-level structure 
-1. A **commit** contains metadata such as the author, the commit message, and the time the commit happened. 
-2. Each commit also has a **tree**, which tracks the names and locations in the repository when that commit happened. In the oldest (top) commit, there were two files tracked by the repository.
-3. For each of the files listed in the tree, there is a **blob**. This contains a compressed snapshot of the contents of the file when the commit happened (blob is short for binary large object, which is a SQL database term for "may contain data of any kind"). In the middle commit, `report.md` and `draft.md` were changed, so the blobs are shown next to that commit. `data/northern.csv` didn't change in that commit, so the tree links to the blob from the previous commit. Reusing blobs between commits help make common operations fast and minimizes storage space.
 
-![tree level structure](/images/gds_2_1_SVG.svg)
+
+## Ignore files 
+You can tell it to stop paying attention to files you don't care about by creating a file in the root directory of your repository called `.gitignore` and storing a list of wildcard patterns that specify the files you don't want Git to pay attention to.
+
+## Remove files 
+* `git clean -n`: show you a list of files that are in the repository, but whose history Git is not currently tracking. 
+* `git clean -f`: delete those files
+
+## Git configuration 
+* `git config --list`: show default settings <br /> 
+Also available in  one of three additional options:
+`--system`: settings for every user on this computer.
+`--global`: settings for every one of your projects.
+`--local`: settings for one specific project.
+
+* `git config --global setting value`
+Using this command, you specify the `setting` you want to change and the `value` you want to set. <br /> 
+for eaxmple : `git config --global user.email qw2273@columbia.edu` <br /> 
+Change the email address (user.email) configured for the current user for all projects to my personal email.
