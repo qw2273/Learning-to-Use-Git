@@ -14,16 +14,16 @@ Git has a staging area in which it stores files with changes you want to save th
 ![staging-area](/images/staging-area.png)
 
 
-
 ## Useful command List 
 * `cd repositoryname`: set to specific repository 
 * `git status`: shows you which files are in this staging area, and which files have changes that haven't yet been put there. 
+* `git add filename`: add a file to the staging area
 * `git diff filename`: compare the file as it currently is to what you last saved
-* `git diff without any filenames`: show all the changes in your repository
+* `git diff`: show all the changes in your repository
 * `git diff directory`: show you the changes to the files in some directory
+* `git diff -r HEAD`:  The `-r` flag means "compare to a particular revision", and `HEAD` is a shortcut meaning "the most recent commit"
 
 A diff is a formatted display of the differences between two sets of files. Git displays diffs like this:
-
 `diff --git a/data/northern.csv b/data/northern.csvindex 5eb7a96..5a2a259 100644` <br /> 
 `--- a/data/northern.csv` <br /> 
 `+++ b/data/northern.csv` <br /> 
@@ -34,8 +34,17 @@ A diff is a formatted display of the differences between two sets of files. Git 
 `+2017-11-01,bicuspid` 
 
 This shows:
-* The command used to produce the output (in this case, diff --git). In it, `a` and `b` are placeholders meaning "the first version" and "the second version".
+* The command used to produce the output (in this case, `diff --git`). In it, `a` and `b` are placeholders meaning "the first version" and "the second version".
 * An index line showing keys into Git's internal database of changes. We will explore these in the next chapter.
 * `--- a/report.txt` and `+++ b/report.txt`, wherein lines being removed are prefixed with `-` and lines being added are prefixed with `+`.
 * A line starting with `@@` that tells where the changes are being made. The pairs of numbers are `start line` and `number of lines` (in that section of the file where changes occurred). This diff output indicates changes starting at line 22 , with 4 lines where there were once 3.
 * A line-by-line listing of the changes with `-` showing deletions and `+` showing additions (we have also configured Git to show deletions in red and additions in green). Lines that haven't changed are sometimes shown before and after the ones that have in order to give context; when they appear, they don't have either `+` or `-` in front of them.
+
+
+Edit Text 
+`nano filename`: open filename for editing (or create it if it doesn't already exist)
+`Ctrl-K`: delete a line.
+`Ctrl-U`: un-delete a line.
+`Ctrl-O`: save the file ('O' stands for 'output').
+`Ctrl-X`: exit the editor.
+
