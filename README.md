@@ -27,7 +27,7 @@ A diff is a formatted display of the differences between two sets of files. Git 
 `diff --git a/data/northern.csv b/data/northern.csvindex 5eb7a96..5a2a259 100644` <br /> 
 `--- a/data/northern.csv` <br /> 
 `+++ b/data/northern.csv` <br /> 
-`@@ -22,3 +22,4 @@ Date,Tooth` <br /> 
+`@@ -22,3 +22,4 @@ Date,Tooth`<br /> 
 `2017-08-13,incisor` <br /> 
 `2017-08-13,wisdom` <br /> 
 `2017-09-07,molar` <br /> 
