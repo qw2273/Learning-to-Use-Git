@@ -23,6 +23,7 @@ Git has a staging area in which it stores files with changes you want to save th
 * `git diff directory`: show you the changes to the files in some directory
 * `git diff -r HEAD`:  The `-r` flag means "compare to a particular revision", and `HEAD` is a shortcut meaning "the most recent commit"
 
+*Example on how to read git diff output* 
 A diff is a formatted display of the differences between two sets of files. Git displays diffs like this:
 `diff --git a/data/northern.csv b/data/northern.csvindex 5eb7a96..5a2a259 100644` <br /> 
 `--- a/data/northern.csv` <br /> 
@@ -41,10 +42,9 @@ This shows:
 * A line-by-line listing of the changes with `-` showing deletions and `+` showing additions (we have also configured Git to show deletions in red and additions in green). Lines that haven't changed are sometimes shown before and after the ones that have in order to give context; when they appear, they don't have either `+` or `-` in front of them.
 
 
-Edit Text 
-`nano filename`: open filename for editing (or create it if it doesn't already exist)
-`Ctrl-K`: delete a line.
-`Ctrl-U`: un-delete a line.
-`Ctrl-O`: save the file ('O' stands for 'output').
-`Ctrl-X`: exit the editor.
+* `nano filename`: open filename for editing (or create it if it doesn't already exist)
+                 1. `Ctrl-K`: delete a line.
+                 2. `Ctrl-U`: un-delete a line.
+                 3. `Ctrl-O`: save the file ('O' stands for 'output').
+                 4. `Ctrl-X`: exit the editor.
 
