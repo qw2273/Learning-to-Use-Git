@@ -76,12 +76,12 @@ You can tell it to stop paying attention to files you don't care about by creati
 * `git clean -f`: delete those files
 
 # Undo 
-`git checkout -- filename`: 1.  discard the changes that have not yet been staged. <br /n>
-2. This command can also be used to go back even further into a file's history and restore versions of that file from a commit.  <br /n>
-*Use this command carefully: once you discard changes in this way, they are gone forever.* <br /n>
-for example: `git checkout 2242bd report.txt` would replace the current version of report.txt with the version with hash number 2242bd 
- `git reset HEAD path/to/file` + `git checkout -- path/to/file`: discard changes that have been staged. 
- *you unstaged a change first by `reset` then discard this unstaged change by `checkout`
+`git checkout -- filename`: 1.  discard the changes that have not yet been staged. <br />
+2. This command can also be used to go back even further into a file's history and restore versions of that file from a commit.  <br />
+*Use this command carefully: once you discard changes in this way, they are gone forever.* <br />
+for example: `git checkout 2242bd report.txt` would replace the current version of report.txt with the version with hash number 2242bd <br />
+ `git reset HEAD path/to/file` + `git checkout -- path/to/file`: discard changes that have been staged. <br />
+ *you unstaged a change first by `reset` then discard this unstaged change by `checkout`<br />
 
 ## Git configuration 
 * `git config --list`: show default settings <br /> 
