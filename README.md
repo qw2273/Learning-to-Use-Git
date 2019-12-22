@@ -24,6 +24,7 @@ ting those changes is like putting that box in the mail: you can add more things
 
 # Useful command List 
 * `cd repositoryname`: set to specific repository 
+* `pwd`: check current path 
 * `git status`: shows you which files are in this staging area, and which files have changes that haven't yet been put there. 
 * `git add filename`: add a file to the staging area
 
@@ -33,8 +34,10 @@ ting those changes is like putting that box in the mail: you can add more things
 * `git diff directory`: show you the changes to the files in some directory
 * `git diff -r HEAD`:  The `-r` flag means "compare to a particular revision", and `HEAD` is a shortcut meaning "the most recent commit"
 * The special label `HEAD`, always refers to the most recent commit. The label `HEAD~2` refers to the most recent commit and the one that before it 
-* `git diff HEAD~1/hashnumber..HEAD~3/hashnumber`: show changes between commits 
+* `git diff HEAD~1/hashnumber/branch1..HEAD~3/hashnumber/branch2`: show changes between commits 
 * `git annotate file`: shows who made the last change to each line of a file and when
+* `cat path/filename`: display the updated content of the file
+
 
 *Example on how to read git diff output* 
 A diff is a formatted display of the differences between two sets of files. Git displays diffs like this:
@@ -75,13 +78,15 @@ You can tell it to stop paying attention to files you don't care about by creati
 * `git clean -n`: show you a list of files that are in the repository, but whose history Git is not currently tracking. 
 * `git clean -f`: delete those files
 
-# Undo 
-`git checkout -- filename`: 1.  discard the changes that have not yet been staged. <br />
+# Undo changes 
+* `git checkout -- filename`: 1.  discard the changes that have not yet been staged. <br />
 2. This command can also be used to go back even further into a file's history and restore versions of that file from a commit.  <br />
 *Use this command carefully: once you discard changes in this way, they are gone forever.* <br />
-for example: `git checkout 2242bd report.txt` would replace the current version of report.txt with the version with hash number 2242bd <br />
- `git reset HEAD path/to/file` + `git checkout -- path/to/file`: discard changes that have been staged. <br />
- *you unstaged a change first by `reset` then discard this unstaged change by `checkout`<br />
+For example: `git checkout 2242bd report.txt` would replace the current version of `report.txt` with the version with hash number 2242bd. <br />
+* `git reset HEAD path/to/file` + `git checkout -- path/to/file`: discard changes that have been staged. <br />
+*you unstaged a change first by `reset` then discard this unstaged change by `checkout`<br />
+* `git reset`: unstage any files from the directory
+* `git checkout -- .`: revert all files in the current directory.
 
 ## Git configuration 
 * `git config --list`: show default settings <br /> 
@@ -94,3 +99,27 @@ Also available in  one of three additional options:
 Using this command, you specify the `setting` you want to change and the `value` you want to set. <br /> 
 for eaxmple : `git config --global user.email qw2273@columbia.edu` <br /> 
 Change the email address (user.email) configured for the current user for all projects to my personal email.
+
+## Branch
+* Each branch is like a parallel universe: changes you make in one branch do not affect other branches (until you merge them back together).
+* `git branch`:list all of the branches in a repository. The branch you are currently in will be shown with a * beside its name.
+* `git checkout branchname`: switch to other branch 
+* `git rm filename`: remove  a file 
+* `git merge branch1 branch2`: merge two branches 
+* `git checkout -b branch-name`: create a new branch
+
+## Repository
+* `git init project-name`: create a new repository, with new root directory name as project-name
+* `git init /path/to/project`/`git init`: turn an existing project into a Git repository 
+* `git clone /existing/project newprojectname`: create a copy of an existing repository with `newprojectname`, if no projectname provided, it will name it just as `project` 
+for example: `git clone /home/thunk/repo dental`
+
+## Remote: 
+- A **remote** is like a browser bookmark with a name and a URL.
+* `git remote`/`git remote -v`: find the list of remotes 
+* `git remote add remote-name URL`:  add more remotes
+* `git remote rm remote-name`: remove remotes 
+
+- pull changes from those repositories and push changes to them
+* `git pull remote-name branch-name`: gets everything in branch in the remote repository identified by `remote` and merges it into the current `branch` of your local repository.
+`git push remote-name branch-name`: push to branch by adding to stage first.
