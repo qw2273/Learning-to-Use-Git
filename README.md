@@ -9,7 +9,8 @@
 
 
 # What is staging area ? 
-Git has a staging area in which it stores files with changes you want to save that haven't been saved yet. Putting files in the staging area is like putting things in a box, while committing those changes is like putting that box in the mail: you can add more things to the box or take things out as often as you want, but once you put it in the mail, you can't make further changes.
+Git has a staging area in which it stores files with changes you want to save that haven't been saved yet. Putting files in the staging area is like putting things in a box, while 
+ting those changes is like putting that box in the mail: you can add more things to the box or take things out as often as you want, but once you put it in the mail, you can't make further changes.
 
 ![staging-area](/images/staging-area.png)
 
@@ -59,14 +60,13 @@ This shows:
                  2. `Ctrl-U`: un-delete a line. <br/>
                  3. `Ctrl-O`: save the file ('O' stands for 'output').<br />
                  4. `Ctrl-X`: exit the editor.
-* `git commit -m "add comment messgae here"`: add a single-line message
+* `git commit filepath -m "add comment messgae here"`:commit with  a single-line message
 * `git commit`: add message in a text editor
 * `git commit --amend - m "new message"`: revise the message 
 * `git log`: view the history , the history is displaced *from latest to the oldest*, push `space` button to continue reading and `q` to exit 
 * `git log directroy/filepath`:inspect only the changes to particular files or directories
 * `git show first_few_characters_of_hash`: check a specific commit using hash 
-
-
+* `git log -3 filename`: shows you the last three commits involving in file
 
 ## Ignore files 
 You can tell it to stop paying attention to files you don't care about by creating a file in the root directory of your repository called `.gitignore` and storing a list of wildcard patterns that specify the files you don't want Git to pay attention to.
@@ -74,6 +74,14 @@ You can tell it to stop paying attention to files you don't care about by creati
 ## Remove files 
 * `git clean -n`: show you a list of files that are in the repository, but whose history Git is not currently tracking. 
 * `git clean -f`: delete those files
+
+# Undo 
+`git checkout -- filename`: 1.  discard the changes that have not yet been staged. <br /n>
+2. This command can also be used to go back even further into a file's history and restore versions of that file from a commit.  <br /n>
+*Use this command carefully: once you discard changes in this way, they are gone forever.* <br /n>
+for example: `git checkout 2242bd report.txt` would replace the current version of report.txt with the version with hash number 2242bd 
+ `git reset HEAD path/to/file` + `git checkout -- path/to/file`: discard changes that have been staged. 
+ *you unstaged a change first by `reset` then discard this unstaged change by `checkout`
 
 ## Git configuration 
 * `git config --list`: show default settings <br /> 
