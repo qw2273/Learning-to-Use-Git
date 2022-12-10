@@ -125,7 +125,7 @@ for example: `git clone /home/thunk/repo dental`
 `git push remote-name branch-name`: push to branch by adding to stage first.
 
 
-## Pull Request: 
+## Pull Request:  https://www.datacamp.com/tutorial/git-push-pull
 ** Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the head branch) into another branch (the base branch). For more information, see "About pull requests."
 * `git remote`: check the remote server name, <remote-name> 
 * `git checkout -b <brach-name>`:  create a new local branch and check it out
