@@ -126,5 +126,5 @@ for example: `git clone /home/thunk/repo dental`
 
 
 ## Pull Request: 
-** Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the head branch) into another branch (the base branch). For more information, see "About pull requests."
+** Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the head branch) into another branch (the base branch).
 
