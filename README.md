@@ -123,3 +123,8 @@ for example: `git clone /home/thunk/repo dental`
 - pull changes from those repositories and push changes to them
 * `git pull remote-name branch-name`: gets everything in branch in the remote repository identified by `remote` and merges it into the current `branch` of your local repository.
 `git push remote-name branch-name`: push to branch by adding to stage first.
+
+
+## Pull Request: 
+** Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the head branch) into another branch (the base branch). For more information, see "About pull requests."
+
