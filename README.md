@@ -126,6 +126,7 @@ for example: `git clone /home/thunk/repo dental`
 
 
 ## Pull Request: 
+<<<<<<< HEAD
 ** Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the head branch) into another branch (the base branch). For more information, see "About pull requests."
 * `git remote`: check the remote server name, <remote-name> 
 * `git checkout -b <brach-name>`:  create a new local branch and check it out
@@ -137,4 +138,7 @@ for example: `git clone /home/thunk/repo dental`
 * `git push <remote-name>  <branch_name>`: push the change to the specified branch
 * Then, go to the GitHub website, Open a Pull request to finish the action;
 * Don't forget to Delete a Branch after the PULL Request is Merged
+=======
+** Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the head branch) into another branch (the base branch).
+>>>>>>> master
 
